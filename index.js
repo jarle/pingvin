@@ -96,7 +96,17 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            console.log(JSON.stringify(bonusTiles))
+            bonusTiles.sort((a, b) => {
+                const dax = Math.abs(x-a.x)
+                const day = Math.abs(y-a.y)
+                const dbx = Math.abs(x-b.x)
+                const dby = Math.abs(y-b.y)
+                const daSum = dax + day
+                const dbSum = dbx + dby
+                return (daSum-dbSum)
+            })
+            console.log(JSON.stringify(bonusTiles[0]))
+
             res.status(200).send({command: c.advance})
             return
         }
