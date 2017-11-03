@@ -43,7 +43,7 @@ exports.command = function (req, res) {
                 const yCollision = ((y - 1) == w.y)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = (y == 1);
+            const collideWithBoundary = (y == 0);
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
@@ -67,7 +67,7 @@ exports.command = function (req, res) {
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = (x == 1)
+            const collideWithBoundary = (x === 0)
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
