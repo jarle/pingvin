@@ -20,8 +20,8 @@ exports.command = function (req, res) {
         let content = {
             command: "shoot"
         };
-        console.log(JSON.stringify(req.body));
-        //req = JSON.parse(req.body);
+        const foo = JSON.stringify(req.body.you);
+        console.log(foo)
         res.status(200).send(content);
         return
         // const x = req.you.x;
