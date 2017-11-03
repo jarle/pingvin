@@ -109,13 +109,21 @@ exports.command = function (req, res) {
             if(enemyX === x) {
                 if(enemyY < y) {
                     if(direction !== "top") {
-                        res.status(200).send({command: c.rotateRight})
+                        if(direction !== "right") {
+                            res.status(200).send({command: c.rotateRight})
+                            return
+                        }
+                        res.status(200).send({command: c.rotateLeft})
                         return
                     }
                 }
                 else if(enemyY > y) {
                     if(direction !== "bottom") {
-                        res.status(200).send({command: c.rotateRight})
+                        if(direction !== "left") {
+                            res.status(200).send({command: c.rotateRight})
+                            return
+                        }
+                        res.status(200).send({command: c.rotateLeft})
                         return
                     }
                 }
@@ -124,14 +132,20 @@ exports.command = function (req, res) {
             else if(enemyY === y) {
                 if(enemyX > x) {
                     if(direction !== "right") {
-                        res.status(200).send({command: c.rotateRight})
+                        if(direction !== "bottom") {
+                            res.status(200).send({command: c.rotateRight})
+                            return
+                        }
+                        res.status(200).send({command: c.rotateLeft})
                         return
                     }
                 }
                 else if(enemyX < x) {
                     if(direction !== "left") {
-                        res.status(200).send({command: c.rotateRight})
-                        return
+                        if(direction !== "top") {
+                            res.status(200).send({command: c.rotateRight})
+                            return
+                        }
                     }
                 }
             }
