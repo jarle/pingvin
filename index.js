@@ -37,9 +37,6 @@ exports.command = function (req, res) {
         } = you;
 
         let mode
-        // if(req.body.suddenDeath > 0) {
-        //     mode = "DEATH"
-        // }
         if(enemies[0].hasOwnProperty("x")){
             mode = "ATTACK"
         }
@@ -111,13 +108,13 @@ exports.command = function (req, res) {
 
             if(enemyX === x) {
                 if(enemyY > y) {
-                    if(directions.indexOf(direction) !== "top") {
+                    if(direction !== "top") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
                 }
                 else if(enemyY < y) {
-                    if(directions.indexOf(direction) !== "bottom") {
+                    if(direction !== "bottom") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
@@ -126,13 +123,13 @@ exports.command = function (req, res) {
 
             else if(enemyY === y) {
                 if(enemyX > x) {
-                    if(directions.indexOf(direction) !== "right") {
+                    if(direction !== "right") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
                 }
                 else if(enemyX < x) {
-                    if(directions.indexOf(direction) !== "left") {
+                    if(direction !== "left") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
