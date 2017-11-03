@@ -146,6 +146,8 @@ exports.command = function (req, res) {
                             res.status(200).send({command: c.rotateRight})
                             return
                         }
+                        res.status(200).send({command: c.rotateLeft})
+                        return
                     }
                 }
             }
