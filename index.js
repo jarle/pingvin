@@ -96,6 +96,7 @@ exports.command = function (req, res) {
                     return
                 }
             }
+            // hunt for closest powerup
             bonusTiles.sort((a, b) => {
                 const dax = Math.abs(x-a.x)
                 const day = Math.abs(y-a.y)
@@ -105,8 +106,116 @@ exports.command = function (req, res) {
                 const dbSum = dbx + dby
                 return (daSum-dbSum)
             })
-            console.log(JSON.stringify(bonusTiles[0]))
+            const target = bonusTiles[0]
 
+            if(direction === "top") {
+                if(target.y < y) {
+                    const block = walls.filter(w => {
+                        const yCollision = ((y - 1) === w.y)
+                        return yCollision
+                    })
+                    if(block.length > 0) {
+                        res.status(200).send({command: c.shoot})
+                        return
+                    }
+                    res.status(200).send({command: c.advance})
+                    return
+                }
+                // rotate in place
+                if(target.x > x) {
+                    if(direction !== "right") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(target.x < x) {
+                    if(direction !== "left") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
+            if(direction === "bottom") {
+                if(target.y > y) {
+                    const block = walls.filter(w => {
+                        const yCollision = ((y + 1) === w.y)
+                        return yCollision
+                    })
+                    if(block.length > 0) {
+                        res.status(200).send({command: c.shoot})
+                        return
+                    }
+                    res.status(200).send({command: c.advance})
+                    return
+                }
+                // rotate in place
+                if(target.x > x) {
+                    if(direction !== "right") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(target.x < x) {
+                    if(direction !== "left") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
+            if(direction === "right") {
+                if(target.x > x) {
+                    const block = walls.filter(w => {
+                        const xCollision = ((x + 1) === w.x)
+                        return xCollision
+                    })
+                    if(block.length > 0) {
+                        res.status(200).send({command: c.shoot})
+                        return
+                    }
+                    res.status(200).send({command: c.advance})
+                    return
+                }
+                // rotate in place
+                if(target.y < y) {
+                    if(direction !== "top") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(target.y > y) {
+                    if(direction !== "bottom") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
+            if(direction === "left") {
+                if(target.x < x) {
+                    const block = walls.filter(w => {
+                        const xCollision = ((x - 1) === w.x)
+                        return xCollision
+                    })
+                    if(block.length > 0) {
+                        res.status(200).send({command: c.shoot})
+                        return
+                    }
+                    res.status(200).send({command: c.advance})
+                    return
+                }
+                // rotate in place
+                if(target.y < y) {
+                    if(direction !== "top") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(target.y > y) {
+                    if(direction !== "bottom") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
             res.status(200).send({command: c.advance})
             return
         }
