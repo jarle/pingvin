@@ -32,8 +32,11 @@ exports.command = function (req, res) {
             y,
             direction
         } = you;
-        const mode = enemies.length > 0? "ATTACK": "SCAN";
-        console.log(`In mode ${mode}`)
+
+        const enemy = enemies[0]
+        const mode = "SCAN"
+        
+        console.log(JSON.stringify(enemy))
 
         // avoid walls
         if(direction === "top") {
