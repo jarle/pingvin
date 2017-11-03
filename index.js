@@ -34,7 +34,7 @@ exports.command = function (req, res) {
         if(direction === "top") {
             const block = walls.filter(w => {
                 const xCollision = ((w.x - x) == 0)
-                const yCollision = ((w.y - 1) == y)
+                const yCollision = ((w.y + 1) == y)
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
@@ -45,7 +45,7 @@ exports.command = function (req, res) {
         else if(direction === "bottom") {
             const block = walls.filter(w => {
                 const xCollision = ((w.x - x) == 0)
-                const yCollision = ((w.y + 1) == y)
+                const yCollision = ((w.y - 1) == y)
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
@@ -55,7 +55,7 @@ exports.command = function (req, res) {
         }
         else if(direction === "left") {
             const block = walls.filter(w => {
-                const xCollision = ((w.x + 1 ) == x)
+                const xCollision = ((w.x - 1 ) == x)
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
@@ -66,7 +66,7 @@ exports.command = function (req, res) {
         }
         else if(direction === "right") {
             const block = walls.filter(w => {
-                const xCollision = ((w.x - 1 ) == x)
+                const xCollision = ((w.x + 1 ) == x)
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
