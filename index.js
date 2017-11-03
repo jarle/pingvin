@@ -20,9 +20,11 @@ exports.command = function (req, res) {
         let content = {
             command: "shoot"
         };
-        req = JSON.parse(req.body);
+        console.log(JSON.stringify(req));
+        //req = JSON.parse(req.body);
         res.status(200).send(content);
-        const x = req.you.x;
+        return
+        // const x = req.you.x;
         // const y = req.you.y;
         // const direction = req.you.direction;
 
