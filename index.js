@@ -17,11 +17,9 @@ exports.info = function (req, res) {
 
 exports.command = function (req, res) {
     cors(req, res, () => {
-        const {
-            direction,
-            x,
-            y
-        } = req.you;
+        const x = req.you.x;
+        const y = req.you.y;
+        const direction = req.you.direction;
 
         // avoid walls
         if(direction === "top") {
@@ -68,9 +66,6 @@ exports.command = function (req, res) {
                 return
             }
         }
-
-        
-        const walls = req.walls;
 
         let content = {
             command: c.advance
