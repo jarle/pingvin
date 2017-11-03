@@ -27,6 +27,9 @@ exports.command = function (req, res) {
             mapHeight
         } = req.body;
 
+        const centerX = mapWidth / 2
+        const centerY = mapHeight / 2
+
         const {
             x,
             y,
@@ -97,18 +100,22 @@ exports.command = function (req, res) {
             res.status(200).send({command: c.advance})
             return
         }
+        else if(mode === "DEATH") {
+            res.status(200).send({command: c.pass})
+            return
+        }
         else { // attack
             enemyX = enemies[0].x;
             enemyY = enemies[0].y;
 
             if(enemyX === x) {
-                if(enemyY > y) {
+                if(enemyY >= y) {
                     if(directions.indexOf(direction) !== "top") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
                 }
-                else if(enemyY < y) {
+                else if(enemyY <= y) {
                     if(directions.indexOf(direction) !== "bottom") {
                         res.status(200).send({command: c.rotateRight})
                         return
@@ -117,13 +124,13 @@ exports.command = function (req, res) {
             }
 
             else if(enemyY === y) {
-                if(enemyX > x) {
+                if(enemyX >= x) {
                     if(directions.indexOf(direction) !== "right") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
                 }
-                else if(enemyY < y) {
+                else if(enemyY <= y) {
                     if(directions.indexOf(direction) !== "left") {
                         res.status(200).send({command: c.rotateRight})
                         return
