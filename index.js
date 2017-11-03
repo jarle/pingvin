@@ -37,7 +37,7 @@ exports.command = function (req, res) {
         } = you;
 
         let mode
-        if(req.body.suddenDeath) {
+        if(req.body.suddenDeath > 0) {
             mode = "DEATH"
         }
         else if(enemies[0].hasOwnProperty("x")){
