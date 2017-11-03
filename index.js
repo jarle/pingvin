@@ -33,7 +33,7 @@ exports.command = function (req, res) {
             direction
         } = you;
 
-        const mode = enemies[0].x? "ATTACK": "SCAN"
+        const mode = enemies[0].hasOwnProperty("x")? "ATTACK": "SCAN"
         
         console.log(JSON.stringify(enemy))
 
