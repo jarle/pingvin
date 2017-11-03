@@ -33,8 +33,8 @@ exports.command = function (req, res) {
             direction
         } = you;
 
+        console.log(req.body.suddentDeath);
         const mode = enemies[0].hasOwnProperty("x")? "ATTACK": "SCAN"
-        
 
         // avoid walls
         if(direction === "top") {
