@@ -17,6 +17,7 @@ exports.info = function (req, res) {
 
 exports.command = function (req, res) {
     cors(req, res, () => {
+        req = JSON.parse(req);
         const x = req.you.x;
         // const y = req.you.y;
         // const direction = req.you.direction;
