@@ -39,7 +39,7 @@ exports.command = function (req, res) {
                 const yCollision = ((y - 1) == w.y)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = Math.abs(y - mapHeight) == 1;
+            const collideWithBoundary = (y == 1);
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
@@ -51,7 +51,7 @@ exports.command = function (req, res) {
                 const yCollision = ((y + 1) == w.y)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = Math.abs(y - mapHeight) == 1;
+            const collideWithBoundary = ((mapHeight - y) == 1)
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
@@ -63,7 +63,7 @@ exports.command = function (req, res) {
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = Math.abs(x - mapHeight) == 1;
+            const collideWithBoundary = (x == 1)
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
@@ -75,7 +75,7 @@ exports.command = function (req, res) {
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
-            const collideWithBoundary = Math.abs(x - mapHeight) == 1;
+            const collideWithBoundary = ((mapWidth - x) == 1)
             if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
