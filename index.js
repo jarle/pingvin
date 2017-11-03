@@ -33,8 +33,7 @@ exports.command = function (req, res) {
             direction
         } = you;
 
-        const enemy = enemies[0]
-        const mode = "SCAN"
+        const mode = enemies[0].x? "ATTACK": "SCAN"
         
         console.log(JSON.stringify(enemy))
 
