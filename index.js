@@ -122,6 +122,10 @@ exports.command = function (req, res) {
                     }
                 }
             }
+            else {
+                res.status(200).send({command: c.advance})
+                return
+            }
 
             res.status(200).send({command: c.shoot})
         }
