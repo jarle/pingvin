@@ -107,13 +107,13 @@ exports.command = function (req, res) {
             enemyY = enemies[0].y;
 
             if(enemyX === x) {
-                if(enemyY > y) {
+                if(enemyY < y) {
                     if(direction !== "top") {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
                 }
-                else if(enemyY < y) {
+                else if(enemyY > y) {
                     if(direction !== "bottom") {
                         res.status(200).send({command: c.rotateRight})
                         return
