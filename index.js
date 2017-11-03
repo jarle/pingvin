@@ -24,7 +24,8 @@ exports.command = function (req, res) {
             walls,
             enemies,
             mapWidth,
-            mapHeight
+            mapHeight,
+            bonusTiles
         } = req.body;
 
         const centerX = mapWidth / 2
@@ -152,6 +153,7 @@ exports.command = function (req, res) {
                 }
             }
             else {
+                console.log(JSON.stringify(bonusTiles))
                 res.status(200).send({command: c.advance})
                 return
             }
