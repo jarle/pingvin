@@ -33,6 +33,7 @@ exports.command = function (req, res) {
             direction
         } = you;
         const mode = enemies.length > 0? "ATTACK": "SCAN";
+        console.log(`In mode ${mode}`)
 
         // avoid walls
         if(direction === "top") {
