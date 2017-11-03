@@ -83,7 +83,7 @@ exports.command = function (req, res) {
                 return
             }
         }
-        if(mode == "SCAN") {
+        if(mode === "SCAN") {
             res.status(200).send({command: c.advance})
             return
         }
