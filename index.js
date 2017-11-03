@@ -33,8 +33,16 @@ exports.command = function (req, res) {
             direction
         } = you;
 
-        console.log(req.body.suddentDeath);
-        const mode = enemies[0].hasOwnProperty("x")? "ATTACK": "SCAN"
+        let mode
+        if(req.body.suddenDeath) {
+            mode = "DEATH"
+        }
+        else if(enemies[0].hasOwnProperty("x")){
+            mode = "ATTACK"
+        }
+        else {
+            mode = "SCAN"
+        }
 
         // avoid walls
         if(direction === "top") {
@@ -109,7 +117,7 @@ exports.command = function (req, res) {
             }
 
             else if(enemyY === y) {
-                if(enemyx > x) {
+                if(enemyX > x) {
                     if(directions.indexOf(direction) !== "right") {
                         res.status(200).send({command: c.rotateRight})
                         return
