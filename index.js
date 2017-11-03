@@ -69,8 +69,6 @@ exports.command = function (req, res) {
                         res.status(200).send({command: c.shoot})
                         return
                     }
-                    res.status(200).send({command: c.advance})
-                    return
                 }
                 // rotate in place
                 if(target.x > x) {
@@ -85,6 +83,8 @@ exports.command = function (req, res) {
                         return
                     }
                 }
+                res.status(200).send({command: c.advance})
+                return
             }
             if(direction === "bottom") {
                 if(target.y > y) {
@@ -96,8 +96,6 @@ exports.command = function (req, res) {
                         res.status(200).send({command: c.shoot})
                         return
                     }
-                    res.status(200).send({command: c.advance})
-                    return
                 }
                 // rotate in place
                 if(target.x > x) {
@@ -112,6 +110,8 @@ exports.command = function (req, res) {
                         return
                     }
                 }
+                res.status(200).send({command: c.advance})
+                return
             }
             if(direction === "right") {
                 if(target.x > x) {
@@ -123,8 +123,6 @@ exports.command = function (req, res) {
                         res.status(200).send({command: c.shoot})
                         return
                     }
-                    res.status(200).send({command: c.advance})
-                    return
                 }
                 // rotate in place
                 if(target.y < y) {
@@ -139,6 +137,8 @@ exports.command = function (req, res) {
                         return
                     }
                 }
+                res.status(200).send({command: c.advance})
+                return
             }
             if(direction === "left") {
                 if(target.x < x) {
@@ -150,8 +150,6 @@ exports.command = function (req, res) {
                         res.status(200).send({command: c.shoot})
                         return
                     }
-                    res.status(200).send({command: c.advance})
-                    return
                 }
                 // rotate in place
                 if(target.y < y) {
@@ -166,6 +164,8 @@ exports.command = function (req, res) {
                         return
                     }
                 }
+                res.status(200).send({command: c.advance})
+                return
             }
             // avoid walls
             if(direction === "top") {
