@@ -46,6 +46,7 @@ exports.command = function (req, res) {
         else {
             mode = "SCAN"
         }
+        console.log(`Mode ${mode}`)
 
         // avoid walls
         if(direction === "top") {
