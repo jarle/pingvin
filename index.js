@@ -96,11 +96,8 @@ exports.command = function (req, res) {
                     return
                 }
             }
+            console.log(JSON.stringify(bonusTiles))
             res.status(200).send({command: c.advance})
-            return
-        }
-        else if(mode === "DEATH") {
-            res.status(200).send({command: c.pass})
             return
         }
         else { // attack
@@ -153,7 +150,6 @@ exports.command = function (req, res) {
                 }
             }
             else {
-                console.log(JSON.stringify(bonusTiles))
                 res.status(200).send({command: c.advance})
                 return
             }
