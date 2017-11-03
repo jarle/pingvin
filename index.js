@@ -15,9 +15,11 @@ exports.info = function (req, res) {
     })
 };
 
+const directions = ["top", "bottom", "left", "right"]
+
 exports.command = function (req, res) {
     cors(req, res, () => {
-        const { 
+        const {
             you,
             walls,
             enemies,
@@ -81,6 +83,45 @@ exports.command = function (req, res) {
                 return
             }
         }
-        res.status(200).send({command: c.advance})
+        if(mode == "SCAN") {
+            res.status(200).send({command: c.advance})
+            return
+        }
+        else { // attack
+            enemyX = enemies[0].x;
+            enemyY = enemies[0].y;
+
+            if(enemyX === x) {
+                if(enemyY > y) {
+                    if(directions.indexOf(direction) !== "top") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(enemyY < y) {
+                    if(directions.indexOf(direction) !== "bottom") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
+
+            else if(enemyY === y) {
+                if(enemyx > x) {
+                    if(directions.indexOf(direction) !== "right") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+                else if(enemyY < y) {
+                    if(directions.indexOf(direction) !== "left") {
+                        res.status(200).send({command: c.rotateRight})
+                        return
+                    }
+                }
+            }
+
+            res.status(200).send({command: c.shoot})
+        }
     })
 };
