@@ -35,7 +35,6 @@ exports.command = function (req, res) {
 
         const mode = enemies[0].hasOwnProperty("x")? "ATTACK": "SCAN"
         
-        console.log(JSON.stringify(enemy))
 
         // avoid walls
         if(direction === "top") {
