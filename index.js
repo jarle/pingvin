@@ -37,7 +37,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send(c.retreat)
+                res.status(200).send({command: c.retreat})
                 return
             }
         }
@@ -48,7 +48,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send(c.forward)
+                res.status(200).send({command: c.forward})
                 return
             }
         }
@@ -59,7 +59,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send(c.right)
+                res.status(200).send({command: c.right})
                 return
             }
         }
@@ -70,9 +70,10 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send(c.left)
+                res.status(200).send({command: c.left})
                 return
             }
         }
+        res.status(200).send({command: c.advance})
     })
 };
