@@ -20,7 +20,7 @@ exports.command = function (req, res) {
         let content = {
             command: "shoot"
         };
-        console.log(JSON.stringify(req));
+        console.log(JSON.stringify(req.body));
         //req = JSON.parse(req.body);
         res.status(200).send(content);
         return
