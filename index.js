@@ -1,7 +1,7 @@
 const cors = require("cors")({origin: true});
 const c = {
-    "rotate-left": "rotate-left",
-    "rotate-right": "rotate-right",
+    "rotateLeft": "rotate-left",
+    "rotateRight": "rotate-right",
     "advance": "advance",
     "retreat": "retreat",
     "shoot": "shoot",
@@ -38,7 +38,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send({command: c.retreat})
+                res.status(200).send({command: c.rotateRight})
                 return
             }
         }
@@ -49,7 +49,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send({command: c.forward})
+                res.status(200).send({command: c.rotateRight})
                 return
             }
         }
@@ -60,7 +60,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send({command: c.right})
+                res.status(200).send({command: c.rotateRight})
                 return
             }
         }
@@ -71,7 +71,7 @@ exports.command = function (req, res) {
                 return (xCollision && yCollision)
             })
             if(block.length > 0) {
-                res.status(200).send({command: c.left})
+                res.status(200).send({command: c.rotateRight})
                 return
             }
         }
