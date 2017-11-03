@@ -19,16 +19,18 @@ exports.command = function (req, res) {
     cors(req, res, () => {
         const { 
             you,
-            walls
+            walls,
+            enemies,
+            mapWidth,
+            mapHeight
         } = req.body;
 
-        console.log(JSON.stringify(walls))
         const {
             x,
             y,
             direction
         } = you;
-        console.log(JSON.stringify(direction))
+        const mode = enemies.length > 0? "ATTACK": "SEARCH";
 
         // avoid walls
         if(direction === "top") {
@@ -37,7 +39,8 @@ exports.command = function (req, res) {
                 const yCollision = ((y - 1) == w.y)
                 return (xCollision && yCollision)
             })
-            if(block.length > 0) {
+            const collideWithBoundary = Math.abs(y - mapHeight) == 1;
+            if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
             }
@@ -48,7 +51,8 @@ exports.command = function (req, res) {
                 const yCollision = ((y + 1) == w.y)
                 return (xCollision && yCollision)
             })
-            if(block.length > 0) {
+            const collideWithBoundary = Math.abs(y - mapHeight) == 1;
+            if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
             }
@@ -59,7 +63,8 @@ exports.command = function (req, res) {
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
-            if(block.length > 0) {
+            const collideWithBoundary = Math.abs(x - mapHeight) == 1;
+            if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
             }
@@ -70,7 +75,8 @@ exports.command = function (req, res) {
                 const yCollision = ((w.y - y) == 0)
                 return (xCollision && yCollision)
             })
-            if(block.length > 0) {
+            const collideWithBoundary = Math.abs(x - mapHeight) == 1;
+            if(block.length > 0 || collideWithBoundary) {
                 res.status(200).send({command: c.rotateRight})
                 return
             }
