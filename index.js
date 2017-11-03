@@ -28,6 +28,7 @@ exports.command = function (req, res) {
             y,
             direction
         } = you;
+        console.log(JSON.stringify(direction))
 
         // avoid walls
         if(direction === "top") {
