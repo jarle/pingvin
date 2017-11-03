@@ -17,7 +17,11 @@ exports.info = function (req, res) {
 
 exports.command = function (req, res) {
     cors(req, res, () => {
-        req = JSON.parse(req);
+        let content = {
+            command: c.advance
+        };
+        req = JSON.parse(req.body);
+        res.status(200).send(content);
         const x = req.you.x;
         // const y = req.you.y;
         // const direction = req.you.direction;
@@ -67,10 +71,5 @@ exports.command = function (req, res) {
         //         return
         //     }
         // }
-
-        let content = {
-            command: c.advance
-        };
-        res.status(200).send(content);
     })
 };
