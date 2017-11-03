@@ -22,7 +22,7 @@ exports.command = function (req, res) {
             walls
         } = req.body;
 
-        console.log(JSON.stringify(you))
+        console.log(JSON.stringify(walls))
         const {
             x,
             y,
