@@ -18,7 +18,7 @@ exports.info = function (req, res) {
 exports.command = function (req, res) {
     cors(req, res, () => {
         let content = {
-            command: c.advance
+            command: "shoot"
         };
         req = JSON.parse(req.body);
         res.status(200).send(content);
