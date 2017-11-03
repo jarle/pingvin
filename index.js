@@ -32,7 +32,7 @@ exports.command = function (req, res) {
             y,
             direction
         } = you;
-        const mode = enemies.length > 0? "ATTACK": "SEARCH";
+        const mode = enemies.length > 0? "ATTACK": "SCAN";
 
         // avoid walls
         if(direction === "top") {
