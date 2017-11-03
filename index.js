@@ -47,55 +47,6 @@ exports.command = function (req, res) {
         console.log(`Mode ${mode}`)
 
         if(mode === "SCAN") {
-            // avoid walls
-            if(direction === "top") {
-                const block = walls.filter(w => {
-                    const xCollision = ((w.x - x) == 0)
-                    const yCollision = ((y - 1) == w.y)
-                    return (xCollision && yCollision)
-                })
-                const collideWithBoundary = (y == 0);
-                if(block.length > 0 || collideWithBoundary) {
-                    res.status(200).send({command: c.rotateRight})
-                    return
-                }
-            }
-            else if(direction === "bottom") {
-                const block = walls.filter(w => {
-                    const xCollision = ((w.x - x) == 0)
-                    const yCollision = ((y + 1) == w.y)
-                    return (xCollision && yCollision)
-                })
-                const collideWithBoundary = ((mapHeight - y) == 1)
-                if(block.length > 0 || collideWithBoundary) {
-                    res.status(200).send({command: c.rotateRight})
-                    return
-                }
-            }
-            else if(direction === "left") {
-                const block = walls.filter(w => {
-                    const xCollision = ((x - 1 ) == w.x)
-                    const yCollision = ((w.y - y) == 0)
-                    return (xCollision && yCollision)
-                })
-                const collideWithBoundary = (x === 0)
-                if(block.length > 0 || collideWithBoundary) {
-                    res.status(200).send({command: c.rotateRight})
-                    return
-                }
-            }
-            else if(direction === "right") {
-                const block = walls.filter(w => {
-                    const xCollision = ((x + 1 ) == w.x)
-                    const yCollision = ((w.y - y) == 0)
-                    return (xCollision && yCollision)
-                })
-                const collideWithBoundary = ((mapWidth - x) == 1)
-                if(block.length > 0 || collideWithBoundary) {
-                    res.status(200).send({command: c.rotateRight})
-                    return
-                }
-            }
             // hunt for closest powerup
             bonusTiles.sort((a, b) => {
                 const dax = Math.abs(x-a.x)
@@ -214,6 +165,55 @@ exports.command = function (req, res) {
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
+                }
+            }
+            // avoid walls
+            if(direction === "top") {
+                const block = walls.filter(w => {
+                    const xCollision = ((w.x - x) == 0)
+                    const yCollision = ((y - 1) == w.y)
+                    return (xCollision && yCollision)
+                })
+                const collideWithBoundary = (y == 0);
+                if(block.length > 0 || collideWithBoundary) {
+                    res.status(200).send({command: c.rotateRight})
+                    return
+                }
+            }
+            else if(direction === "bottom") {
+                const block = walls.filter(w => {
+                    const xCollision = ((w.x - x) == 0)
+                    const yCollision = ((y + 1) == w.y)
+                    return (xCollision && yCollision)
+                })
+                const collideWithBoundary = ((mapHeight - y) == 1)
+                if(block.length > 0 || collideWithBoundary) {
+                    res.status(200).send({command: c.rotateRight})
+                    return
+                }
+            }
+            else if(direction === "left") {
+                const block = walls.filter(w => {
+                    const xCollision = ((x - 1 ) == w.x)
+                    const yCollision = ((w.y - y) == 0)
+                    return (xCollision && yCollision)
+                })
+                const collideWithBoundary = (x === 0)
+                if(block.length > 0 || collideWithBoundary) {
+                    res.status(200).send({command: c.rotateRight})
+                    return
+                }
+            }
+            else if(direction === "right") {
+                const block = walls.filter(w => {
+                    const xCollision = ((x + 1 ) == w.x)
+                    const yCollision = ((w.y - y) == 0)
+                    return (xCollision && yCollision)
+                })
+                const collideWithBoundary = ((mapWidth - x) == 1)
+                if(block.length > 0 || collideWithBoundary) {
+                    res.status(200).send({command: c.rotateRight})
+                    return
                 }
             }
             res.status(200).send({command: c.advance})
