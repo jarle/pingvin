@@ -192,7 +192,7 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = (y == 0);
                 if(block.length > 0 || collideWithBoundary) {
-                    if(Match.random() < 0.5) {
+                    if(Math.random() < 0.5) {
                         res.status(200).send({command: c.rotateLeft})
                         return
                     }
@@ -208,7 +208,7 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = ((mapHeight - y) == 1)
                 if(block.length > 0 || collideWithBoundary) {
-                    if(Match.random() < 0.5) {
+                    if(Math.random() < 0.5) {
                         res.status(200).send({command: c.rotateLeft})
                         return
                     }
@@ -224,7 +224,7 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = (x === 0)
                 if(block.length > 0 || collideWithBoundary) {
-                    if(Match.random() < 0.5) {
+                    if(Math.random() < 0.5) {
                         res.status(200).send({command: c.rotateLeft})
                         return
                     }
@@ -240,7 +240,7 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = ((mapWidth - x) == 1)
                 if(block.length > 0 || collideWithBoundary) {
-                    if(Match.random() < 0.5) {
+                    if(Math.random() < 0.5) {
                         res.status(200).send({command: c.rotateLeft})
                         return
                     }
@@ -310,7 +310,7 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = (y == 0);
                     if(block.length > 0 || collideWithBoundary) {
-                        if(Match.random() < 0.5) {
+                        if(Math.random() < 0.5) {
                             res.status(200).send({command: c.rotateLeft})
                             return
                         }
@@ -326,7 +326,7 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = ((mapHeight - y) == 1)
                     if(block.length > 0 || collideWithBoundary) {
-                        if(Match.random() < 0.5) {
+                        if(Math.random() < 0.5) {
                             res.status(200).send({command: c.rotateLeft})
                             return
                         }
@@ -342,7 +342,7 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = (x === 0)
                     if(block.length > 0 || collideWithBoundary) {
-                        if(Match.random() < 0.5) {
+                        if(Math.random() < 0.5) {
                             res.status(200).send({command: c.rotateLeft})
                             return
                         }
@@ -358,7 +358,7 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = ((mapWidth - x) == 1)
                     if(block.length > 0 || collideWithBoundary) {
-                        if(Match.random() < 0.5) {
+                        if(Math.random() < 0.5) {
                             res.status(200).send({command: c.rotateLeft})
                             return
                         }
