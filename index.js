@@ -71,8 +71,6 @@ exports.command = function (req, res) {
                             res.status(200).send({command: c.shoot})
                             return
                         }
-                        res.status(200).send({command: c.advance})
-                        return
                     }
                     else if (target.y > y){
                         res.status(200).send({command: c.rotateRight})
@@ -111,8 +109,6 @@ exports.command = function (req, res) {
                             res.status(200).send({command: c.shoot})
                             return
                         }
-                        res.status(200).send({command: c.advance})
-                        return
                     }
                     else if (target.y < y){
                         res.status(200).send({command: c.rotateRight})
@@ -151,8 +147,6 @@ exports.command = function (req, res) {
                             res.status(200).send({command: c.shoot})
                             return
                         }
-                        res.status(200).send({command: c.advance})
-                        return
                     }
                     else if(target.x < x) {
                         res.status(200).send({command: c.rotateRight})
@@ -191,8 +185,6 @@ exports.command = function (req, res) {
                             res.status(200).send({command: c.shoot})
                             return
                         }
-                        res.status(200).send({command: c.advance})
-                        return
                     }
                     else if(target.x > x) {
                         res.status(200).send({command: c.rotateRight})
@@ -270,10 +262,8 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            if(bonusTiles.length === 0) {
-                res.status(200).send({command: c.advance})
-                return
-            }
+            res.status(200).send({command: c.advance})
+            return
         }
         else { // attack
             enemyX = enemies[0].x;
