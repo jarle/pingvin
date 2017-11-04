@@ -63,9 +63,10 @@ exports.command = function (req, res) {
                     const dbSum = dbx + dby
                     return (daSum-dbSum)
                 })
-                const bonusWithRange = bonusTiles.concat(
-                   bonusTiles.filter(t => t.type === "weapon-range") 
-                )
+                const bonusWithRange = bonusTiles
+                    .filter(t => t.type === "weapon-range")
+                    .concat(bonusTiles)
+
                 const target = bonusWithRange[0]
 
                 if(direction === "top") {
