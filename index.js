@@ -238,8 +238,7 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            res.status(200).send({command: c.advance})
-            return
+
             enemyX = enemies[0].x;
             enemyY = enemies[0].y;
 
