@@ -25,7 +25,8 @@ exports.command = function (req, res) {
             enemies,
             mapWidth,
             mapHeight,
-            bonusTiles
+            bonusTiles,
+            suddenDeath
         } = req.body;
 
         const centerX = mapWidth / 2
@@ -40,6 +41,10 @@ exports.command = function (req, res) {
         let mode
         if(enemies[0].hasOwnProperty("x")){
             mode = "ATTACK"
+        }
+        else if(suddenDeath === 0) {
+            res.status(200).send({command: c.pass})
+            return
         }
         else {
             mode = "SCAN"
