@@ -10,7 +10,7 @@ const c = {
 
 exports.info = function (req, res) {
     cors(req, res, () => {
-        let content = { name: "P!ngu 🐧", team: "Sandvika 🐧 Sesam" };
+        let content = { name: "🔥P!ngu🔥", team: "Sandvika🐧Sesam" };
         res.status(200).send(content);
     })
 };
