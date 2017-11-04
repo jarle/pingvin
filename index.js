@@ -248,7 +248,15 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            res.status(200).send({command: c.advance})
+            if(Math.random() < 0.95) {
+                res.status(200).send({command: c.advance})
+                return
+            }
+            if(Math.random() < 0.5) {
+                res.status(200).send({command: c.rotateLeft})
+                return
+            }
+            res.status(200).send({command: c.rotateRight})
             return
         }
         else { // attack
