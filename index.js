@@ -54,9 +54,10 @@ exports.command = function (req, res) {
         if(mode === "SCAN") {
             // hunt for closest powerup
             if(bonusTiles.length > 0){
-                bonusTiles
-                .filter(tile => tile.type === "weapon-range")
-                .sort((a, b) => {
+                const filteredBonus = bonusTiles
+                    .filter(tile => tile.type === "weapon-range")
+
+                filteredBonus.sort((a, b) => {
                     const dax = Math.abs(x-a.x)
                     const day = Math.abs(y-a.y)
                     const dbx = Math.abs(x-b.x)
@@ -65,7 +66,7 @@ exports.command = function (req, res) {
                     const dbSum = dbx + dby
                     return (daSum-dbSum)
                 })
-                const target = bonusTiles[0]
+                const target = filteredBonus[0]
 
                 if(direction === "top") {
                     if(target.y < y) {
