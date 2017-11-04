@@ -164,6 +164,8 @@ exports.command = function (req, res) {
                         return
                     }
                 }
+                res.status(200).send({command: c.advance})
+                return
             }
             // avoid walls
             if(direction === "top") {
