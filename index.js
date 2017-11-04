@@ -62,8 +62,9 @@ exports.command = function (req, res) {
             if(direction === "top") {
                 if(target.y < y) {
                     const block = walls.filter(w => {
+                        const xCollision = ((w.x - x) == 0)
                         const yCollision = ((y - 1) === w.y)
-                        return yCollision
+                        return (yCollision && xCollision)
                     })
                     if(block.length > 0) {
                         res.status(200).send({command: c.shoot})
@@ -89,8 +90,9 @@ exports.command = function (req, res) {
             if(direction === "bottom") {
                 if(target.y > y) {
                     const block = walls.filter(w => {
+                        const xCollision = ((w.x - x) == 0)
                         const yCollision = ((y + 1) === w.y)
-                        return yCollision
+                        return (yCollision && xCollision)
                     })
                     if(block.length > 0) {
                         res.status(200).send({command: c.shoot})
@@ -117,7 +119,8 @@ exports.command = function (req, res) {
                 if(target.x > x) {
                     const block = walls.filter(w => {
                         const xCollision = ((x + 1) === w.x)
-                        return xCollision
+                        const yCollision = ((w.y - y) == 0)
+                        return (xCollision && yCollision)
                     })
                     if(block.length > 0) {
                         res.status(200).send({command: c.shoot})
@@ -144,7 +147,8 @@ exports.command = function (req, res) {
                 if(target.x < x) {
                     const block = walls.filter(w => {
                         const xCollision = ((x - 1) === w.x)
-                        return xCollision
+                        const yCollision = ((w.y - y) == 0)
+                        return (xCollision && yCollision)
                     })
                     if(block.length > 0) {
                         res.status(200).send({command: c.shoot})
