@@ -248,7 +248,7 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            if(Math.random() < 0.95) {
+            if(Math.random() < 0.8) {
                 res.status(200).send({command: c.advance})
                 return
             }
