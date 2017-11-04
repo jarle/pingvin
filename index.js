@@ -65,7 +65,7 @@ exports.command = function (req, res) {
                 })
                 const bonusWithRange = bonusTiles
                     .filter(t => (t.type === "weapon-range" || t.type ==="weapon-power"))
-                    .concat(bonusTiles)
+                    .concat(bonusTiles.filter(t => t.type !== "strength" ))
 
                 const target = bonusWithRange[0]
 
