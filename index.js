@@ -10,7 +10,7 @@ const c = {
 
 exports.info = function (req, res) {
     cors(req, res, () => {
-        let content = { name: "Jarle", team: "Sandvika" };
+        let content = { name: "P!ngu", team: "Sandvika" };
         res.status(200).send(content);
     })
 };
@@ -238,8 +238,10 @@ exports.command = function (req, res) {
                     return
                 }
             }
-            res.status(200).send({command: c.advance})
-            return
+            if(bonusTiles.length === 0) {
+                res.status(200).send({command: c.advance})
+                return
+            }
         }
         else { // attack
             enemyX = enemies[0].x;
