@@ -64,7 +64,7 @@ exports.command = function (req, res) {
                     return (daSum-dbSum)
                 })
                 const bonusWithRange = bonusTiles
-                    .filter(t => t.type === "weapon-range")
+                    .filter(t => (t.type === "weapon-range" || t.type ==="weapon-power"))
                     .concat(bonusTiles)
 
                 const target = bonusWithRange[0]
