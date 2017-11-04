@@ -54,7 +54,7 @@ exports.command = function (req, res) {
         if(mode === "SCAN") {
             // hunt for closest powerup
             if(bonusTiles.length > 0){
-                filteredBonus.sort((a, b) => {
+                bonusTiles.sort((a, b) => {
                     const dax = Math.abs(x-a.x)
                     const day = Math.abs(y-a.y)
                     const dbx = Math.abs(x-b.x)
@@ -63,7 +63,7 @@ exports.command = function (req, res) {
                     const dbSum = dbx + dby
                     return (daSum-dbSum)
                 })
-                const bonusWithRange = filteredBonus.concat(
+                const bonusWithRange = bonusTiles.concat(
                    bonusTiles.filter(t => t.type === "weapon-range") 
                 )
                 const target = bonusWithRange[0]
