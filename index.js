@@ -53,8 +53,7 @@ exports.command = function (req, res) {
 
         if(mode === "SCAN") {
             // hunt for closest powerup
-            // if(bonusTiles.length > 0){
-            if (false) { // TODO: REMOVE
+            if(bonusTiles.length > 0){
                 bonusTiles.sort((a, b) => {
                     const dax = Math.abs(x-a.x)
                     const day = Math.abs(y-a.y)
