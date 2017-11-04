@@ -53,7 +53,8 @@ exports.command = function (req, res) {
 
         if(mode === "SCAN") {
             // hunt for closest powerup
-            if(bonusTiles.length > 0){
+            // if(bonusTiles.length > 0){
+            if (false) { // TODO: REMOVE
                 bonusTiles.sort((a, b) => {
                     const dax = Math.abs(x-a.x)
                     const day = Math.abs(y-a.y)
@@ -191,6 +192,10 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = (y == 0);
                 if(block.length > 0 || collideWithBoundary) {
+                    if(Match.random() < 0.5) {
+                        res.status(200).send({command: c.rotateLeft})
+                        return
+                    }
                     res.status(200).send({command: c.rotateRight})
                     return
                 }
@@ -203,6 +208,10 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = ((mapHeight - y) == 1)
                 if(block.length > 0 || collideWithBoundary) {
+                    if(Match.random() < 0.5) {
+                        res.status(200).send({command: c.rotateLeft})
+                        return
+                    }
                     res.status(200).send({command: c.rotateRight})
                     return
                 }
@@ -215,6 +224,10 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = (x === 0)
                 if(block.length > 0 || collideWithBoundary) {
+                    if(Match.random() < 0.5) {
+                        res.status(200).send({command: c.rotateLeft})
+                        return
+                    }
                     res.status(200).send({command: c.rotateRight})
                     return
                 }
@@ -227,6 +240,10 @@ exports.command = function (req, res) {
                 })
                 const collideWithBoundary = ((mapWidth - x) == 1)
                 if(block.length > 0 || collideWithBoundary) {
+                    if(Match.random() < 0.5) {
+                        res.status(200).send({command: c.rotateLeft})
+                        return
+                    }
                     res.status(200).send({command: c.rotateRight})
                     return
                 }
@@ -293,6 +310,10 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = (y == 0);
                     if(block.length > 0 || collideWithBoundary) {
+                        if(Match.random() < 0.5) {
+                            res.status(200).send({command: c.rotateLeft})
+                            return
+                        }
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
@@ -305,6 +326,10 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = ((mapHeight - y) == 1)
                     if(block.length > 0 || collideWithBoundary) {
+                        if(Match.random() < 0.5) {
+                            res.status(200).send({command: c.rotateLeft})
+                            return
+                        }
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
@@ -317,6 +342,10 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = (x === 0)
                     if(block.length > 0 || collideWithBoundary) {
+                        if(Match.random() < 0.5) {
+                            res.status(200).send({command: c.rotateLeft})
+                            return
+                        }
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
@@ -329,6 +358,10 @@ exports.command = function (req, res) {
                     })
                     const collideWithBoundary = ((mapWidth - x) == 1)
                     if(block.length > 0 || collideWithBoundary) {
+                        if(Match.random() < 0.5) {
+                            res.status(200).send({command: c.rotateLeft})
+                            return
+                        }
                         res.status(200).send({command: c.rotateRight})
                         return
                     }
