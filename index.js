@@ -78,24 +78,12 @@ exports.command = function (req, res) {
                     }
                     // rotate in place
                     if(target.x > x) {
-                        if(direction !== "right") {
-                            if(direction !== "bottom") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateRight})
+                        return
                     }
                     else if(target.x < x) {
-                        if(direction !== "left") {
-                            if(direction !== "top") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateLeft})
+                        return
                     }
                 }
                 if(direction === "bottom") {
@@ -116,24 +104,12 @@ exports.command = function (req, res) {
                     }
                     // rotate in place
                     if(target.x > x) {
-                        if(direction !== "right") {
-                            if(direction !== "bottom") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateLeft})
+                        return
                     }
                     else if(target.x < x) {
-                        if(direction !== "left") {
-                            if(direction !== "top") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateRight})
+                        return
                     }
                 }
                 if(direction === "right") {
@@ -154,24 +130,12 @@ exports.command = function (req, res) {
                     }
                     // rotate in place
                     if(target.y < y) {
-                        if(direction !== "top") {
-                            if(direction !== "right") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateLeft})
+                        return
                     }
                     else if(target.y > y) {
-                        if(direction !== "bottom") {
-                            if(direction !== "left") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateRight})
+                        return
                     }
                 }
                 if(direction === "left") {
@@ -192,24 +156,12 @@ exports.command = function (req, res) {
                     }
                     // rotate in place
                     if(target.y < y) {
-                        if(direction !== "top") {
-                            if(direction !== "right") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateRight})
+                        return
                     }
                     else if(target.y > y) {
-                        if(direction !== "bottom") {
-                            if(direction !== "left") {
-                                res.status(200).send({command: c.rotateRight})
-                                return
-                            }
-                            res.status(200).send({command: c.rotateLeft})
-                            return
-                        }
+                        res.status(200).send({command: c.rotateLeft})
+                        return
                     }
                 }
             }
