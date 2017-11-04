@@ -73,6 +73,10 @@ exports.command = function (req, res) {
                     res.status(200).send({command: c.advance})
                     return
                 }
+                else if (target.y > y){
+                    res.status(200).send({command: c.rotateRight})
+                    return
+                }
                 // rotate in place
                 if(target.x > x) {
                     if(direction !== "right") {
@@ -99,6 +103,10 @@ exports.command = function (req, res) {
                         return
                     }
                     res.status(200).send({command: c.advance})
+                    return
+                }
+                else if (target.y < y){
+                    res.status(200).send({command: c.rotateRight})
                     return
                 }
                 // rotate in place
@@ -129,6 +137,10 @@ exports.command = function (req, res) {
                     res.status(200).send({command: c.advance})
                     return
                 }
+                else if(target.x < x) {
+                    res.status(200).send({command: c.rotateRight})
+                    return
+                }
                 // rotate in place
                 if(target.y < y) {
                     if(direction !== "top") {
@@ -155,6 +167,10 @@ exports.command = function (req, res) {
                         return
                     }
                     res.status(200).send({command: c.advance})
+                    return
+                }
+                else if(target.x > x) {
+                    res.status(200).send({command: c.rotateRight})
                     return
                 }
                 // rotate in place
